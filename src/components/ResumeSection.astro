@@ -1,0 +1,55 @@
+---
+interface Detail {
+	title: string;
+	points: string[];
+}
+
+interface Item {
+	period: string;
+	title: string;
+	location?: string;
+	points?: string[];
+	details?: Detail[];
+}
+
+interface Props {
+	title: string;
+	items: Item[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="cv-section">
+	<h2 class="cv-section-title">{title}</h2>
+	<div class="cv-items">
+		{
+			items.map((item) => (
+				<article class="cv-item">
+					<div class="cv-year"><span>{item.period}</span></div>
+					<div class="cv-content">
+						<h3 class="cv-title">{item.title}</h3>
+						{item.location && <p class="cv-location">{item.location}</p>}
+
+						{item.details ? (
+							<div class="cv-items cv-detail-list">
+								{item.details.map((detail) => (
+									<div>
+										<p class="cv-detail">{detail.title}</p>
+										<div class="cv-list">
+											{detail.points.map((point) => <p>{point}</p>)}
+										</div>
+									</div>
+								))}
+							</div>
+						) : item.points ? (
+							<div class="cv-list">
+								{item.points.map((point) => <p>{point}</p>)}
+							</div>
+						) : null}
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>

@@ -1,11 +1,119 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import KeyValueSection from '../components/KeyValueSection.astro';
+import Logo from '../components/Logo.astro';
+import ResumeSection from '../components/ResumeSection.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const work = [
+	{
+		period: '2025',
+		title: 'German Language Learner (B1)',
+		location: 'Munich, Germany',
+		details: [
+			{
+				title: 'Ludwig-Maximilians-Universität München',
+				points: ['Completed "German for study and work" - A2+ level.'],
+			},
+			{
+				title: 'Deutsch Akademie München',
+				points: ['Completed intensive German courses from A1 through B1.'],
+			},
+		],
+	},
+	{
+		period: '2022 — 2024',
+		title: 'Senior Frontend Developer',
+		location: 'Toyou Feiji Electronics, Changsha, China',
+		points: [
+			'Led the technical architecture for a full storage management platform overhaul using Vue.js and TypeScript, introducing a modern frontend-backend separation.',
+			'Developed Redfish-compliant RESTful APIs and refactored 100+ interfaces to improve clustered storage device management.',
+			'Designed and implemented an AI-powered chat tool with Vue.js and Ragflow to support after-sales workflows.',
+			'Modernized the frontend toolchain with Vite, ESLint, and Tailwind CSS, improving build speed by 60%+ and resolving 300+ code issues.',
+			'Mentored 3 junior developers and established a practical code review process.',
+		],
+	},
+	{
+		period: '2018 — 2022',
+		title: 'Junior Frontend Developer',
+		location: 'Blitz Interactive Entertainment, Shenzhen, China',
+		points: [
+			'Built a proprietary instant messaging system for an enterprise portal and mobile application, supporting business inquiries and feedback.',
+			'Implemented a rich-media chat interface, Spring Boot backend integration, and analytics dashboards for session data visualization.',
+			'Containerized and deployed the full IM system with Docker for production use.',
+			'Improved Activity Manager performance and built a reusable component library with 20+ components.',
+		],
+	},
+	{
+		period: '2016 — 2018',
+		title: 'Junior Frontend Developer',
+		location: 'Jinji Network Technology, Shanghai, China',
+		points: [
+			'Developed a React Native application with ijkplayer integration for Android and iOS video playback.',
+			'Built a React.js and Ant Design admin frontend with file upload and data visualization features.',
+			'Redesigned the corporate website with improved UI structure and user experience.',
+		],
+	},
+];
+
+const education = [
+	{
+		period: '2012 — 2016',
+		title: 'Bachelor of Engineering in Communication Engineering',
+		location: 'University of Electronic Science and Technology of China, Chengdu, China',
+	},
+];
+
+const skills = [
+	{ label: 'Frontend', value: 'HTML, CSS, React, Vue.js, Next.js, Tailwind CSS, React Native' },
+	{ label: 'Backend', value: 'Node.js, RESTful APIs, Spring Boot, MySQL' },
+	{ label: 'Programming', value: 'JavaScript, TypeScript, Python, Java' },
+	{ label: 'Tools', value: 'Vite, Webpack, Git, ESLint, Docker' },
+	{ label: 'AI', value: 'Generative AI, Prompt Engineering, Modular Prompt Design' },
+	{ label: 'Competencies', value: 'Performance Optimization, Responsive Design, Documentation' },
+];
+
+const languages = [
+	{ label: 'English', value: 'Fluent (B2 CEFR)' },
+	{ label: 'German', value: 'Intermediate (B1 CEFR)' },
+	{ label: 'Chinese', value: 'Native' },
+];
+
+const additional = [
+	{ label: 'Open Source', value: 'Active open-source contributor with personal GitHub projects, 670+ stars, and 300+ followers.' },
+	{ label: 'Interests', value: 'Travel, badminton, photography' },
+];
 ---
 
 <Layout>
-	<Welcome />
+	<main class="cv-page">
+		<div class="cv-profile">
+			<header class="cv-header">
+				<div class="cv-avatar">
+					<Logo />
+				</div>
+
+				<div class="cv-header-meta">
+					<h1 class="cv-name">Shiyu / 時雨</h1>
+					<p class="cv-byline">Senior Frontend Developer</p>
+					<p class="cv-byline">@Munich, Germany</p>
+				</div>
+			</header>
+
+			<section class="cv-section">
+				<h2 class="cv-section-title">Profile</h2>
+				<div class="cv-description">
+					<p>
+						Senior Frontend Developer with over 8 years of experience architecting and delivering high-performance web applications using React, Vue.js, and TypeScript. Adept at enhancing complex systems, implementing intuitive user interfaces, and leading cross-functional teams. Eager to contribute to a forward-thinking company in Germany.
+					</p>
+				</div>
+			</section>
+
+			<ResumeSection title="Work Experience" items={work} />
+			<ResumeSection title="Education" items={education} />
+
+			<KeyValueSection title="Technical Skills" items={skills} />
+			<KeyValueSection title="Languages" items={languages} />
+			<KeyValueSection title="Additional Information" items={additional} />
+		</div>
+	</main>
 </Layout>

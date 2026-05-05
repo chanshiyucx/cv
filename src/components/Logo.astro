@@ -1,0 +1,23 @@
+---
+import Signature from './Signature.astro';
+---
+
+<div class="signature-logo" aria-hidden="true">
+	<Signature class="signature-logo__shadow" fill="currentColor" stroke="currentColor" />
+	<Signature class="signature-logo__animated" />
+</div>
+
+<script>
+	const logos = document.querySelectorAll<SVGSVGElement>('.signature-logo__animated');
+
+	for (const logo of logos) {
+		const paths = logo.querySelectorAll<SVGPathElement>('path');
+
+		paths.forEach((path, index) => {
+			const length = path.getTotalLength();
+			path.style.setProperty('--path-length', `${length}px`);
+			path.style.setProperty('--delay', `${index * 0.1}s`);
+			path.classList.add('logo-path');
+		});
+	}
+</script>
