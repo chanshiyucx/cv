@@ -1,0 +1,27 @@
+---
+interface Item {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	title: string;
+	items: Item[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="cv-section cv-compact-section">
+	<h2 class="cv-section-title">{title}</h2>
+	<div class="cv-items cv-compact-items">
+		{
+			items.map((item) => (
+				<div class="cv-item">
+					<div class="cv-year"><span>{item.label}</span></div>
+					<div class="cv-kv-value">{item.value}</div>
+				</div>
+			))
+		}
+	</div>
+</section>
