@@ -2,6 +2,7 @@
 interface Item {
 	label: string;
 	value: string;
+	href?: string;
 }
 
 interface Props {
@@ -12,14 +13,25 @@ interface Props {
 const { title, items } = Astro.props;
 ---
 
-<section class="cv-section cv-compact-section">
+<section class="cv-section">
 	<h2 class="cv-section-title">{title}</h2>
 	<div class="cv-items cv-compact-items">
 		{
 			items.map((item) => (
 				<div class="cv-item">
 					<div class="cv-year"><span>{item.label}</span></div>
-					<div class="cv-kv-value">{item.value}</div>
+					<div class="cv-kv-value">
+						{
+							item.href ? (
+								<a class="cv-link" href={item.href} target="_blank" rel="noopener noreferrer">
+									<span class="cv-link-label">{item.value}</span>
+									<span class="cv-link-arrow" aria-hidden="true">↗</span>
+								</a>
+							) : (
+								item.value
+							)
+						}
+					</div>
 				</div>
 			))
 		}
