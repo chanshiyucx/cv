@@ -225,6 +225,25 @@ a:hover {
   row-gap: 16px;
 }
 
+.cv-link {
+  display: inline-flex;
+  align-items: baseline;
+  column-gap: 4px;
+  color: var(--color-muted);
+}
+
+.cv-link-arrow {
+  color: var(--color-soft);
+  font-size: 0.75em;
+  line-height: 1;
+  text-decoration: none;
+  transform: translateY(-0.15em);
+}
+
+.cv-link:hover .cv-link-arrow {
+  color: currentColor;
+}
+
 @keyframes svg-text {
   0% {
     stroke-dashoffset: var(--path-length);

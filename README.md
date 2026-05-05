@@ -1,15 +1,15 @@
-# Xin Chen CV
+# Shiyu CV
 
-An Astro-powered static CV site inspired by the reference layout in `docs/`.
+An Astro-powered static CV site.
 
 ## Commands
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`            | Install dependencies                             |
-| `pnpm dev`                | Start local dev server at `localhost:4321`       |
-| `pnpm build`              | Build the production site to `./dist/`           |
-| `pnpm preview`            | Preview the production build locally             |
+| Command        | Action                                     |
+| :------------- | :----------------------------------------- |
+| `pnpm install` | Install dependencies                       |
+| `pnpm dev`     | Start local dev server at `localhost:4321` |
+| `pnpm build`   | Build the production site to `./dist/`     |
+| `pnpm preview` | Preview the production build locally       |
 
 ## Source Files
 

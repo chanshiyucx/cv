@@ -82,6 +82,12 @@ const additional = [
 	{ label: 'Open Source', value: 'Active open-source contributor with personal GitHub projects, 670+ stars, and 300+ followers.' },
 	{ label: 'Interests', value: 'Travel, badminton, photography' },
 ];
+
+const contact = [
+	{ label: 'GitHub', href: 'https://github.com/chanshiyucx', text: 'github.com/chanshiyucx' },
+	{ label: 'Website', href: 'https://shiyu.me/', text: 'shiyu.me' },
+	{ label: 'Twitter', href: 'https://x.com/chanshiyucx', text: 'x.com/chanshiyucx' },
+];
 ---
 
 <Layout>
@@ -103,7 +109,7 @@ const additional = [
 				<h2 class="cv-section-title">Profile</h2>
 				<div class="cv-description">
 					<p>
-						Senior Frontend Developer with over 8 years of experience architecting and delivering high-performance web applications using React, Vue.js, and TypeScript. Adept at enhancing complex systems, implementing intuitive user interfaces, and leading cross-functional teams. Eager to contribute to a forward-thinking company in Germany.
+						Senior Frontend Developer with over 8 years of experience architecting and delivering high-performance web applications using React, Vue.js, and TypeScript. Adept at enhancing complex systems, implementing intuitive user interfaces, and leading cross-functional teams. 
 					</p>
 				</div>
 			</section>
@@ -114,6 +120,25 @@ const additional = [
 			<KeyValueSection title="Technical Skills" items={skills} />
 			<KeyValueSection title="Languages" items={languages} />
 			<KeyValueSection title="Additional Information" items={additional} />
+
+			<section class="cv-section cv-compact-section">
+				<h2 class="cv-section-title">Contact</h2>
+				<div class="cv-items cv-compact-items">
+					{
+						contact.map((item) => (
+							<div class="cv-item">
+								<div class="cv-year"><span>{item.label}</span></div>
+								<div class="cv-kv-value">
+									<a class="cv-link" href={item.href} target="_blank" rel="noreferrer">
+										<span>{item.text}</span>
+										<span class="cv-link-arrow" aria-hidden="true">↗</span>
+									</a>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</section>
 		</div>
 	</main>
 </Layout>
